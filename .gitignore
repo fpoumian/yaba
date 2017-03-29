@@ -2,3 +2,5 @@ __pycache__/
 venv/
 *.sqlite3
 .idea
+/webpack-stats.json
+/node_modules/

@@ -1,0 +1,40 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo $PYTHONPATH",
+    "webpack-server": "webpack --watch",
+    "django-server": "/media/fpoumian/seagate/files/dev/projects/web/django/.venvs/myblog/bin/python manage.py runserver",
+    "start": "concurrently --kill-others \"npm run django-server\" \"npm run webpack-server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-1": "^6.22.0",
+    "bower-webpack-plugin": "^0.1.9",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.2",
+    "node-libs-browser": "^2.0.0",
+    "style-loader": "^0.16.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.2",
+    "webpack-bundle-tracker": "^0.2.0"
+  }
+}

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts.apps.PostsConfig',
     'markdownx',
-    'markdownify'
+    'markdownify',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -125,9 +126,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static", "yaba"),
+]
+
+# Webpack Loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, '..', 'webpack-stats.json'),
+    }
+}
 
 # Markdownify
-MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'  # Default function that compiles markdown using defined extensions. Using custom function can allow you to pre-process or post-process markdown text. See below for more info.
+MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'
 
 MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.extra',

@@ -1,0 +1,47 @@
+// colors
+ @base-color: #000;
+ @brand-primary: @base-color;
+ @accent-color: yellow;
+ @default-border-color: lighten(@base-color, 75%);
+ @default-background-color: #f7f7f7;
+
+ // hover.css
+ @activeColor: @base-color;
+
+ // scaffolding
+ @link-hover-decoration: none;
+
+ // navbar
+@navbar-default-toggle-border-color: @base-color;
+@navbar-default-brand-hover-bg: @base-color;
+@navbar-default-link-hover-bg: @base-color;
+
+ // typography
+ @font-family-sans-serif: "Lato", Helvetica, Arial, sans-serif;
+ @font-family-serif: "Lora", "Times New Roman", Times, serif;
+ @font-size-base: 18px;
+ @headings-font-family: @font-family-serif;
+ @headings-color: @base-color;
+ @default-font-weight: 300;
+
+ // buttons
+@btn-default-border:  @default-border-color;
+
+// grid system
+// @grid-gutter-width: 50px;
+
+// container sizes
+@container-desktop: (840px + @grid-gutter-width);
+@container-large-desktop: @container-desktop + 100px;
+// @container-md: @container-desktop - 100px;
+
+// this folder will be moved from node_modules to temp/ by Gulp "moveToVendor" task
+@icon-font-path: '~bootstrap/fonts/';
+@fa-font-path: '~font-awesome/fonts/';
+
+@navbar-default-bg: transparent;
+@navbar-default-link-color: #fff;
+@navbar-default-link-active-color: @accent-color;
+@navbar-default-link-hover-color: @accent-color;
+
+

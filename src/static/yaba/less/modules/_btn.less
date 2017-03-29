@@ -1,0 +1,23 @@
+.button:extend(.btn):extend(.btn-default) {
+  border-color: @default-border-color;
+  &--round {
+    border-radius: 50px;
+    padding: 8px 12px;
+  }
+  &__inner-text {
+    .deco-text-style();
+    font-size: @font-size-base - 1px;
+    padding:0 6px;
+  }
+  &__icon {
+    font-size: @font-size-base + 4px;
+  }
+}
+
+.button {
+  .fade();
+  opacity: 1;
+  &:before {
+    border-radius: 50px;
+  }
+}
