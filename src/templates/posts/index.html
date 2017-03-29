@@ -4,6 +4,7 @@
     {% for post in posts %}
         <div>
             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <span>Published on: {{ post.published_at }}</span>
             <p>{{ post.excerpt }}</p>
         </div>
     {% empty %}

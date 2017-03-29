@@ -11,7 +11,7 @@ class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ['is_published', 'title', 'slug', 'excerpt', 'body']
+        fields = ['is_published', 'title', 'slug', 'excerpt', 'body', 'published_at']
 
         labels = {
             'is_published': 'Is published?',
@@ -58,8 +58,8 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if form.has_changed() and 'is_published' in form.changed_data:
             if obj.is_published:
-                obj.pubished_at = now()
+                obj.published_at = now()
             else:
-                obj.pubished_at = None
+                obj.published_at = None
 
         super().save_model(request, obj, form, change)
