@@ -2,11 +2,12 @@
 
 {% load markdownify %}
 
-{% block title %}{{post.title}} - {{ block.super }}{% endblock  %}
+{% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block main_content %}
-<h1>{{ post.title }}</h1>  
-<div>  
-  {{ post.body|markdownify|safe }}
-</div>  
+    <span>Published on: {{ post.published_at }}</span>
+    <h1>{{ post.title }}</h1>
+    <div>
+        {{ post.body|markdownify|safe }}
+    </div>
 {% endblock %}
