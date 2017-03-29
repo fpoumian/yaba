@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib import admin
+from django.db import models
 from django.utils.timezone import now
+from markdownx.admin import MarkdownxModelAdmin, AdminMarkdownxWidget
 
 from .models import Post
 
@@ -14,6 +16,9 @@ class PostAdminForm(forms.ModelForm):
         labels = {
             'is_published': 'Is published?',
         }
+
+
+# admin.site.register(Post, MarkdownxModelAdmin)
 
 
 @admin.register(Post)
@@ -44,6 +49,10 @@ class PostAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {
         'slug': ('title',)
+    }
+
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget},
     }
 
     def save_model(self, request, obj, form, change):
