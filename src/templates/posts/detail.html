@@ -1,0 +1,10 @@
+{% extends "yaba/layouts/base.html" %}
+
+{% block title %}{{post.title}} - {{ block.super }}{% endblock  %}
+
+{% block main_content %}
+<h1>{{ post.title }}</h1>  
+<div>  
+  {{ post.body }}
+</div>  
+{% endblock %}

@@ -1,17 +1,6 @@
 from django.http import HttpResponse
-
-home_html = '''<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Yet Another Blog</title>
-  </head>
-  <body>
-    <p>Hello, world!</p>
-  </body>
-</html>
-'''
+from django.shortcuts import render
 
 
-def home(request):
-    return HttpResponse(home_html)
+def index(request):
+    return render(request, 'yaba/index.html')
