@@ -1,7 +1,7 @@
 {% extends "yaba/layouts/base.html" %}
 
 {% block main_content %}
-    <main class="posts">
+    <section class="posts">
         {% for post in posts %}
             {% include "posts/partials/_post.html" with post_context="loop" %}
         {% empty %}
@@ -10,5 +10,5 @@
         {% if posts|length > 0 %}
             {% include "posts/partials/_list_pagination.html" with posts=posts %}
         {% endif %}
-    </main>
+    </section>
 {% endblock %}

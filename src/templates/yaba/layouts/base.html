@@ -35,10 +35,12 @@
         </nav>
     </div>
     <div class="wrapper main-wrapper">
-        {% block main_content %}{% endblock %}
+        <main class="content">
+            {% block main_content %}{% endblock %}
+        </main>
         {% include 'yaba/partials/_sidebar.html' %}
     </div>
-        {% include 'yaba/partials/_footer.html' %}
+    {% include 'yaba/partials/_footer.html' %}
 </div> <!-- .container -->
 {% render_bundle 'main' 'js' 'DEFAULT' %}
 </body>
