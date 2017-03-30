@@ -11,7 +11,7 @@ class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ['is_published', 'title', 'slug', 'excerpt', 'body', 'published_at']
+        fields = ['is_published', 'title', 'slug', 'featured_image', 'excerpt', 'body', 'published_at']
 
         labels = {
             'is_published': 'Is published?',

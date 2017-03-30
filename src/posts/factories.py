@@ -1,8 +1,10 @@
+import os
 import factory
 import factory.django
 from django.utils.timezone import now
 from faker.providers.lorem.la import Provider as LoremProvider
 from django.utils.text import slugify
+from django.conf import settings
 
 from .models import Post
 
@@ -27,6 +29,7 @@ class PostFactory(factory.django.DjangoModelFactory):
     is_published = False
     title = factory.Faker('title')
     slug = factory.LazyAttribute(lambda p: slugify(p.title))
+    featured_image = os.path.join(settings.MEDIA_URL, 'uploads', 'placeholder.jpg')
     excerpt = factory.Faker('sentence', nb_words=20)
     body = factory.Faker('split_paragraphs', nb=6)
 

@@ -17,6 +17,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     excerpt = models.TextField()
     body = models.TextField()
+    featured_image = models.ImageField(upload_to='uploads', null=True)
     created_at = models.DateTimeField('date created', auto_now_add=True)
     updated_at = models.DateTimeField('last modified', auto_now=True)
     published_at = models.DateTimeField('date published', null=True, blank=True)
