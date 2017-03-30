@@ -1,4 +1,5 @@
 {% load render_bundle from webpack_loader %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,26 +14,7 @@
 <div class="container" id="panel">
     <!-- desktop nav -->
     <div class="wrapper navbar-wrapper">
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="true" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">home <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">contact</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-            <!--/.container-fluid -->
-        </nav>
+        {% include 'yaba/partials/_header-nav.html' %}
     </div>
     <div class="wrapper main-wrapper">
         <main class="content">

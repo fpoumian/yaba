@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-                  url(r'^$', views.index),
+                  url(r'^$', views.index, name='index'),
                   url(r'^admin/', admin.site.urls),
-                  url(r'^about/', views.about),
-                  url(r'^contact/', views.contact),
+                  url(r'^about/', views.about, name='about'),
+                  url(r'^contact/', views.contact, name='contact'),
                   url(r'^blog/', include('posts.urls')),
                   url(r'^markdownx/', include('markdownx.urls')),
               ] \
