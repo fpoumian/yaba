@@ -8,3 +8,8 @@ def index(request):
 
 def about(request):
     return render(request, 'yaba/about.html')
+
+
+def contact(request):
+    return render(request, 'yaba/contact.html')
+
