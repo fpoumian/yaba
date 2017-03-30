@@ -8,7 +8,7 @@
             <p>No posts.</p>
         {% endfor %}
         {% if posts|length > 0 %}
-            {% include "posts/partials/_pagination.html" %}
+            {% include "posts/partials/_list_pagination.html" with posts=posts %}
         {% endif %}
     </main>
 {% endblock %}
