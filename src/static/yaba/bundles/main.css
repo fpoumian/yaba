@@ -9376,6 +9376,16 @@ body {
 .posts__pager--next a {
   width: 100%;
 }
+.footer {
+  padding: 2rem;
+}
+.footer__copyright {
+  text-align: center;
+}
+.footer__copyright span {
+  font-size: 12px;
+  font-weight: 300;
+}
 .modal .table {
   margin-bottom: 0;
 }

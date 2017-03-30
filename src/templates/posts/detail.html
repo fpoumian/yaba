@@ -1,13 +1,18 @@
 {% extends "yaba/layouts/base.html" %}
 
-{% load markdownify %}
-
 {% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block main_content %}
-    <span>Published on: {{ post.published_at }}</span>
-    <h1>{{ post.title }}</h1>
-    <div>
-        {{ post.body|markdownify|safe }}
-    </div>
+    <main class="posts">
+        {% include "posts/partials/_post.html" with post_context="detail" %}
+        {% include "posts/partials/_pagination.html" %}
+    </main>
 {% endblock %}
+
+{#{% block main_content %}#}
+{#    <span>Published on: {{ post.published_at }}</span>#}
+{#    <h1>{{ post.title }}</h1>#}
+{#    <div>#}
+{#        {{ post.body|markdownify|safe }}#}
+{#    </div>#}
+{#{% endblock %}#}

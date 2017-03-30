@@ -12,6 +12,10 @@ class ExtendedLoremProvider(LoremProvider):
     def title(cls, nb_words=6, variable_nb_words=True):
         return cls.sentence(nb_words, variable_nb_words)[:-1]
 
+    @classmethod
+    def split_paragraphs(cls, nb=3):
+        return '\n\n'.join(cls.paragraphs(nb))
+
 
 factory.Faker.add_provider(ExtendedLoremProvider)
 
@@ -24,7 +28,7 @@ class PostFactory(factory.django.DjangoModelFactory):
     title = factory.Faker('title')
     slug = factory.LazyAttribute(lambda p: slugify(p.title))
     excerpt = factory.Faker('sentence', nb_words=20)
-    body = factory.Faker('text', max_nb_chars=5000)
+    body = factory.Faker('split_paragraphs', nb=6)
 
     @factory.lazy_attribute
     def published_at(self):

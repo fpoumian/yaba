@@ -1,0 +1,33 @@
+{% load markdownify %}
+
+<article class="post">
+    <figure class="post__image">
+        <img src="http://lorempixel.com/542/400/" alt="Lorem Ipsum">
+    </figure>
+    <div class="post__title">
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    </div>
+    <header class="post__meta">
+        <div class="post__published-on">
+            <span>Published on:</span>
+        </div>
+        <div class="post__date">
+            <time>{{ post.published_at }}</time>
+        </div>
+        <!--<div class="post__tags">
+          <span class="post__tag"><a href="#">#ES2015</a></span>
+          <span class="post__tag"><a href="#">#Frontend</a></span>
+          <span class="post__tag"><a href="#">#Javasvript</a></span>
+
+        </div>-->
+    </header>
+    {% if post_context == 'loop' %}
+        <div class="post__content post__content--excerpt">
+            <p>{{ post.excerpt|markdownify|safe }}
+                <a class="post__read-more-link" href="{{ post.get_absolute_url }}">[read more]</a></p>
+        </div>
+    {% else %}
+        <div class="post__content post">
+        <p>{{ post.body|markdownify|safe }}</p>
+    {% endif %}
+</article>

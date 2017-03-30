@@ -4,10 +4,42 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Yet Another Blog{% endblock %}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,700|Lora:700" rel="stylesheet">
     {% render_bundle 'main' 'css' 'DEFAULT' %}
 </head>
 <body>
-{% block main_content %}{% endblock %}
+<div class="container" id="panel">
+    <!-- desktop nav -->
+    <div class="wrapper navbar-wrapper">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="true" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="./">home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+            <!--/.container-fluid -->
+        </nav>
+    </div>
+    <div class="wrapper main-wrapper">
+        {% block main_content %}{% endblock %}
+        {% include 'yaba/partials/_sidebar.html' %}
+    </div>
+        {% include 'yaba/partials/_footer.html' %}
+</div> <!-- .container -->
 {% render_bundle 'main' 'js' 'DEFAULT' %}
 </body>
 </html>
