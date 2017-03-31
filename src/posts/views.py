@@ -1,27 +1,26 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .utils import get_posts_from_page, render_post_list
 
 from .models import Post
 
 
 def index(request):
-    published_posts = Post.published_objects.all()
-    paginator = Paginator(published_posts, 5)  # Show 5 posts per page
-
     page = request.GET.get('page')
 
-    try:
-        posts = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver the first page.
-        posts = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        posts = paginator.page(paginator.num_pages)
+    return render_post_list(request, get_posts_from_page(page))
 
-    return render(request, 'posts/index.html', {
-        'posts': posts
-    })
+
+def list(request):
+    page = request.GET.get('page')
+
+    # If a page parameter is not present in url
+    # let the index view handle the request
+    # so that "/posts/" route redirects to  "/"
+    if not page:
+        return redirect('posts:index', permanent=True)
+
+    return render_post_list(request, get_posts_from_page(page))
 
 
 def detail(request, slug):
