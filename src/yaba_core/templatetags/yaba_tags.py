@@ -10,7 +10,7 @@ def show_nav_header_menu_items():
     menu_items = [
         {
             'label': 'home',
-            'url': reverse('index')
+            'url': reverse('posts:index')
         },
         {
             'label': 'about',
