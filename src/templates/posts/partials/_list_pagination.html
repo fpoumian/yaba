@@ -5,7 +5,7 @@
                 {% if posts.previous_page_number == 1 %}
                     <a href="{% url 'posts:index' %}" class="button button--round button--round-extended">
                 {% else %}
-                    <a href="{% url 'posts:index' %}?page={{ posts.previous_page_number }}"
+                    <a href="{% url 'posts:list' %}?page={{ posts.previous_page_number }}"
                        class="button button--round button--round-extended">
                 {% endif %}
                 <span class="fa fa-angle-double-left button__icon" aria-hidden="true"></span>
@@ -15,7 +15,7 @@
         {% endif %}
         {% if posts.has_next %}
             <li class="posts__pager--next">
-                <a href="?page={{ posts.next_page_number }}" class="button button--round button--round-extended">
+                <a href="{% url 'posts:list' %}?page={{ posts.next_page_number }}" class="button button--round button--round-extended">
                     <span class="button__inner-text">Next</span>
                     <span class="fa fa-angle-double-right button__icon" aria-hidden="true"></span>
                 </a>
