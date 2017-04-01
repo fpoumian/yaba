@@ -1,0 +1,8 @@
+{% extends "yaba/layouts/base.html" %}
+
+{% block main_content %}
+    <h1>Oops! An Error Occurred</h1>
+    <p>The server returned a 500 Internal Server Error.</p>
+    <p>Please try again a little bit later.</p>
+    <a href="{% url 'posts:index' %}">Return to Home</a>
+{% endblock %}

@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 from . import views
 
@@ -25,6 +26,8 @@ urlpatterns = [
                   url(r'^about/', views.about, name='about'),
                   url(r'^contact/', views.contact, name='contact'),
                   url(r'^markdownx/', include('markdownx.urls')),
+                  url(r'^404/$', TemplateView.as_view(template_name='yaba/404.html')),
+                  url(r'^500/$', TemplateView.as_view(template_name='yaba/500.html')),
                   url(r'^', include('posts.urls')),
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
