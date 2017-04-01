@@ -3,8 +3,6 @@
 {% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block main_content %}
-    <section class="posts">
         {% include "posts/partials/_post.html" with post_context="detail" %}
         {% include "posts/partials/_post_pagination.html" %}
-    </section>
 {% endblock %}

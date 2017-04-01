@@ -1,12 +1,11 @@
 {
-  "name": "myblog",
+  "name": "yaba",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo $PYTHONPATH",
     "webpack-server": "webpack --watch",
-    "django-server": "/media/fpoumian/seagate/files/dev/projects/web/django/.venvs/myblog/bin/python manage.py runserver",
+    "django-server": "python ./src/manage.py runserver",
     "start": "concurrently --kill-others \"npm run django-server\" \"npm run webpack-server\""
   },
   "author": "",

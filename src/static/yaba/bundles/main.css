@@ -9119,7 +9119,7 @@ table tr td {
   border-radius: 50px;
 }
 body {
-  background: linear-gradient(to bottom, #C7C7C7 0%, #FFFFFF 50%);
+  background: linear-gradient(to bottom, #C7C7C7 0%, #FFFFFF 10%);
   background-repeat: no-repeat;
 }
 .wrapper {
@@ -9334,6 +9334,7 @@ body {
 @media (min-width: 992px) {
   .post__meta {
     margin-left: 2rem;
+    margin-bottom: 4rem;
     text-align: center;
     float: right;
     width: 150px;
@@ -9355,6 +9356,15 @@ body {
 }
 .post__content {
   margin: 3rem 0;
+}
+.posts .post {
+  margin-bottom: 5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px dotted #bfbfbf;
+}
+.posts .post:last-of-type {
+  margin-bottom: 0;
+  border-bottom: none;
 }
 .posts__pager {
   margin-bottom: 3rem;
