@@ -5,7 +5,11 @@
         <img src="{{ post.featured_image }}" alt="Lorem Ipsum">
     </figure>
     <div class="post__title">
-        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        {% if post_context == 'loop' %}
+            <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        {% else %}
+            <h1>{{ post.title }}</h1>
+        {% endif %}
     </div>
     <header class="post__meta">
         <div class="post__published-on">
