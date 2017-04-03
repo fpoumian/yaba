@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'yaba_core.context_processors.global_settings'
             ],
         },
     },
@@ -173,3 +174,8 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
+
+# Last.FM API
+LAST_FM_API_KEY = 'ca0b641467a459f40e895bedb47e60bb'
+LAST_FM_USERNAME = 'MidnightMelodic'
+LAST_FM_SCROBBLES_LIMIT = 10

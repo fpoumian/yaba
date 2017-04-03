@@ -1,8 +1,31 @@
-p {
+p, li, span {
   font-weight: @default-font-weight;
 }
 
 table tr td {
   font-size: @font-size-base - 2px;
   font-weight: @default-font-weight;
+}
+
+pre {
+  padding: 32px;
+}
+
+blockquote {
+  background-color: @default-background-color;
+}
+
+.content {
+  p > a {
+    text-decoration: underline;
+  }
+  h1 {
+    .set-font-size(@font-size-h1);
+  }
+  h2 {
+    .set-font-size(@font-size-h2);
+  }
+  h3 {
+    .set-font-size(@font-size-h3);
+  }
 }

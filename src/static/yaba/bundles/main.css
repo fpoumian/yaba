@@ -1253,27 +1253,27 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 46px;
+  font-size: 38px;
 }
 h2,
 .h2 {
-  font-size: 38px;
+  font-size: 31px;
 }
 h3,
 .h3 {
-  font-size: 31px;
+  font-size: 23px;
 }
 h4,
 .h4 {
-  font-size: 23px;
+  font-size: 18px;
 }
 h5,
 .h5 {
-  font-size: 18px;
+  font-size: 16px;
 }
 h6,
 .h6 {
-  font-size: 16px;
+  font-size: 12px;
 }
 p {
   margin: 0 0 12.5px;
@@ -1466,8 +1466,8 @@ abbr[data-original-title] {
 blockquote {
   padding: 12.5px 25px;
   margin: 0 0 25px;
-  font-size: 22.5px;
-  border-left: 5px solid #eeeeee;
+  font-size: 18px;
+  border-left: 5px solid #dedede;
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -1491,7 +1491,7 @@ blockquote .small:before {
 blockquote.pull-right {
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid #eeeeee;
+  border-right: 5px solid #dedede;
   border-left: 0;
   text-align: right;
 }
@@ -9083,12 +9083,62 @@ button.close {
 .normalized-list-style {
   list-style: none;
 }
-p {
+p,
+li,
+span {
   font-weight: 300;
 }
 table tr td {
   font-size: 16px;
   font-weight: 300;
+}
+pre {
+  padding: 32px;
+}
+blockquote {
+  background-color: #f7f7f7;
+}
+.content p > a {
+  text-decoration: underline;
+}
+.content h1 {
+  font-size: 28px;
+}
+@media (min-width: 768px) {
+  .content h1 {
+    font-size: 30.4px;
+  }
+}
+@media (min-width: 992px) {
+  .content h1 {
+    font-size: 38px;
+  }
+}
+.content h2 {
+  font-size: 23px;
+}
+@media (min-width: 768px) {
+  .content h2 {
+    font-size: 24.8px;
+  }
+}
+@media (min-width: 992px) {
+  .content h2 {
+    font-size: 31px;
+  }
+}
+.content h3 {
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .content h3 {
+    font-size: 18.4px;
+  }
+}
+@media (min-width: 992px) {
+  .content h3 {
+    font-size: 23px;
+  }
 }
 .button {
   border-color: #bfbfbf;
@@ -9294,18 +9344,18 @@ body {
 }
 .post__title h1,
 .post__title h2 {
-  font-size: 28.5px;
+  font-size: 23.25px;
 }
 @media (min-width: 768px) {
   .post__title h1,
   .post__title h2 {
-    font-size: 32.3px;
+    font-size: 26.35px;
   }
 }
 @media (min-width: 992px) {
   .post__title h1,
   .post__title h2 {
-    font-size: 38px;
+    font-size: 31px;
   }
 }
 .post__meta {

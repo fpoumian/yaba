@@ -1,0 +1,21 @@
+<script>
+    var lastFmConfig = (function () {
+        var data = {
+            apiKey: "{{ LAST_FM_API_KEY }}",
+            username: "{{ LAST_FM_USERNAME }}",
+            limit: "{{ LAST_FM_SCROBBLES_LIMIT }}"
+        }
+
+        return {
+            getApiKey: function () {
+                return data.apiKey;
+            },
+            getUsername: function () {
+                return data.username;
+            },
+            getLimit: function () {
+                return data.limit;
+            }
+        }
+    })();
+</script>
