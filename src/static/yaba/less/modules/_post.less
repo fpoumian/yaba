@@ -9,13 +9,7 @@
   }
   &__title {
     h1, h2 {
-      font-size: @font-size-h2 * 0.75;
-      @media (min-width: @screen-sm-min) {
-        font-size: @font-size-h2 * 0.85;
-      }
-      @media (min-width: @screen-md-min) {
-        font-size: @font-size-h2;
-      }
+      .set-font-size(@font-size-h1);
     }
     margin-bottom: 3rem;
   }

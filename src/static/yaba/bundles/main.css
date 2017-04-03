@@ -9189,7 +9189,7 @@ blockquote {
   border-radius: 50px;
 }
 body {
-  background: linear-gradient(to bottom, #C7C7C7 0%, #FFFFFF 125px) no-repeat;
+  background: linear-gradient(to bottom, #C7C7C7 0%, #FFFFFF 500px) no-repeat;
 }
 .wrapper {
   margin-left: -15px;
@@ -9332,6 +9332,9 @@ body {
 .sidebar__avatar img {
   border-radius: 50px;
 }
+.sidebar__blog-title h3 {
+  font-size: 2.8rem;
+}
 .sidebar__blog-description p {
   font-style: italic;
   font-size: 16px;
@@ -9364,18 +9367,18 @@ body {
 }
 .post__title h1,
 .post__title h2 {
-  font-size: 23.25px;
+  font-size: 28px;
 }
 @media (min-width: 768px) {
   .post__title h1,
   .post__title h2 {
-    font-size: 26.35px;
+    font-size: 30.4px;
   }
 }
 @media (min-width: 992px) {
   .post__title h1,
   .post__title h2 {
-    font-size: 31px;
+    font-size: 38px;
   }
 }
 .post__meta {
