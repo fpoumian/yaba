@@ -28,8 +28,8 @@ class PostFactory(factory.django.DjangoModelFactory):
 
     is_published = False
     title = factory.Faker('title')
-    slug = factory.LazyAttribute(lambda p: slugify(p.title))
-    featured_image = os.path.join('uploads', 'placeholder.jpg')
+    slug = factory.LazyAttribute(lambda p: slugify(p.title[:49]))
+    featured_image = os.path.join('posts/uploads', 'placeholder.jpg')
     excerpt = factory.Faker('sentence', nb_words=20)
     body = factory.Faker('split_paragraphs', nb=6)
 

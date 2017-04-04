@@ -146,6 +146,8 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.smarty',
 ]
 
+MARKDOWNX_MEDIA_PATH = 'posts/uploads'
+
 # Development Email Server
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'testing@example.com'
