@@ -9188,6 +9188,13 @@ blockquote {
 .button:before {
   border-radius: 50px;
 }
+.button--back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
 body {
   background: linear-gradient(to bottom, #C7C7C7 0%, #FFFFFF 500px) no-repeat;
 }

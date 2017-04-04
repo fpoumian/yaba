@@ -10624,6 +10624,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _jquery2.default)('document').ready(function () {
 
+  /*
+   * Back to Top button
+   */
+
+  (0, _jquery2.default)(window).scroll(function () {
+    if ((0, _jquery2.default)(this).scrollTop() > 50) {
+      (0, _jquery2.default)('#back-to-top').fadeIn();
+    } else {
+      (0, _jquery2.default)('#back-to-top').fadeOut();
+    }
+  });
+  // scroll body to 0px on click
+  (0, _jquery2.default)('#back-to-top').click(function (event) {
+    event.preventDefault();
+    (0, _jquery2.default)('#back-to-top').tooltip('hide');
+    (0, _jquery2.default)('body,html').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+
+  (0, _jquery2.default)('#back-to-top').tooltip('show');
+
   /**
    * Last.FM Modal
    */
