@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'yaba_core',
     'posts.apps.PostsConfig',
     'markdownx',
-    'markdownify',
     'webpack_loader',
+    'mistune'
 ]
 
 MIDDLEWARE = [
@@ -144,27 +144,6 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.extra',
     'markdown.extensions.nl2br',
     'markdown.extensions.smarty',
-]
-
-MARKDOWNIFY_WHITELIST_TAGS = [
-    'a',
-    'abbr',
-    'acronym',
-    'b',
-    'blockquote',
-    'em',
-    'i',
-    'li',
-    'ol',
-    'p',
-    'strong',
-    'ul',
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
 ]
 
 # Development Email Server
