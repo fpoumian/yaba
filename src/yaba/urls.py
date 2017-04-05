@@ -28,6 +28,6 @@ urlpatterns = [
                   url(r'^markdownx/', include('markdownx.urls')),
                   url(r'^404/$', TemplateView.as_view(template_name='yaba/404.html')),
                   url(r'^500/$', TemplateView.as_view(template_name='yaba/500.html')),
-                  url(r'^', include('posts.urls')),
+                  url(r'^', include('posts.urls'))
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
