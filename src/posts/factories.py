@@ -18,8 +18,8 @@ class ExtendedLoremProvider(LoremProvider):
     def split_paragraphs(cls, nb=3):
         return '\n\n'.join(cls.paragraphs(nb))
 
-    @classmethod
-    def markdown(cls):
+    @staticmethod
+    def markdown():
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),
                                'mocks', 'markdown_post.md'), 'r') as f:
             file_content = f.read()
