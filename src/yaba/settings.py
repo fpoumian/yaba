@@ -35,12 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'yaba_core',
     'posts.apps.PostsConfig',
     'markdownx',
     'webpack_loader',
     'mistune'
 ]
+
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -160,3 +163,7 @@ EMAIL_PORT = 1025
 LAST_FM_API_KEY = 'ca0b641467a459f40e895bedb47e60bb'
 LAST_FM_USERNAME = 'MidnightMelodic'
 LAST_FM_SCROBBLES_LIMIT = 10
+
+# Disqus
+DISQUS_API_KEY = '0a45Dx2zEkR1G57mkoJ5CzouNNQc5E0CvskOpY1dIi67aiUPRPaiIhFPgTNpgNax'
+DISQUS_WEBSITE_SHORTNAME = 'fernandocodes'

@@ -4,5 +4,6 @@
 
 {% block main_content %}
         {% include "posts/partials/_post.html" with post_context="detail" %}
-        {% include "posts/partials/_post_pagination.html" %}
+        {% include "posts/partials/_disqus.html" %}
+        {% include "posts/partials/_post_comments.html" %}
 {% endblock %}

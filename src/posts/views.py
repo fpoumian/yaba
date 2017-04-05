@@ -36,6 +36,8 @@ def detail(request, slug):
     except Post.DoesNotExist:
         next = None
 
+    print(request.get_raw_uri())
+
     return render(request, 'posts/detail.html', {
         'post': post,
         'previous': previous,
