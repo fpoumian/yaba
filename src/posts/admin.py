@@ -11,19 +11,18 @@ class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ['is_published', 'title', 'slug', 'featured_image', 'excerpt', 'body', 'published_at']
+        fields = []
 
         labels = {
             'is_published': 'Is published?',
         }
 
 
-# admin.site.register(Post, MarkdownxModelAdmin)
-
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'published_at'
+
+    fields = ('is_published', 'title', 'slug', 'featured_image', 'tags', 'excerpt', 'body', 'published_at')
 
     list_display = (
         'title',

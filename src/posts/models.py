@@ -2,6 +2,8 @@ import os
 
 from django.db import models
 from django.urls import reverse
+from tagging.registry import register
+from tagging.fields import TagField
 
 
 def rename_file_with_slug(old_filename, slug):
@@ -30,6 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
     excerpt = models.TextField()
     body = models.TextField()
+    tags = TagField()
     featured_image = models.ImageField(upload_to=generate_featured_image_path, null=True)
     created_at = models.DateTimeField('date created', auto_now_add=True)
     updated_at = models.DateTimeField('last modified', auto_now=True)
@@ -40,3 +43,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+register(Post, 'post_tags')

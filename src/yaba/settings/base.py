@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'posts',
     'markdownx',
     'webpack_loader',
-    'mistune'
+    'mistune',
+    'tagging'
 ]
 
 SITE_ID = 1
@@ -170,6 +171,10 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
 ]
 
 MARKDOWNX_MEDIA_PATH = 'posts/uploads'
+
+# Tagging
+FORCE_LOWERCASE_TAGS = True
+MAX_TAG_LENGTH = 10
 
 # Last.FM API
 LAST_FM_API_KEY = 'ca0b641467a459f40e895bedb47e60bb'
