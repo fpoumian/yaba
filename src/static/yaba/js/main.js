@@ -10355,7 +10355,7 @@ function LastFmScrobbledTrack(rawTrackData) {
   this._name = rawTrackData.name;
   this._artist = rawTrackData.artist['#text'];
   this._album = rawTrackData.album['#text'];
-  this._date = rawTrackData.date['#text'];
+  this._date = rawTrackData.date ? rawTrackData.date['#text'] : 'Now playing...';
 };
 
 exports.default = LastFmScrobbledTrack;
