@@ -3,8 +3,10 @@ import factory
 import factory.django
 from django.utils.timezone import now
 from faker.providers.lorem.la import Provider as LoremProvider
+from faker.providers.date_time import Provider as DateTimeProvider
 from django.utils.text import slugify
 from django.conf import settings
+from django.utils import timezone
 
 from .models import Post
 
@@ -27,6 +29,7 @@ class ExtendedLoremProvider(LoremProvider):
 
 
 factory.Faker.add_provider(ExtendedLoremProvider)
+factory.Faker.add_provider(DateTimeProvider)
 
 
 class PostFactory(factory.django.DjangoModelFactory):
@@ -43,4 +46,6 @@ class PostFactory(factory.django.DjangoModelFactory):
 
     @factory.lazy_attribute
     def published_at(self):
-        return now() if self.is_published else None
+        published_date = factory.Faker('date_time_this_month')
+        return published_date.generate(
+            extra_kwargs={'tzinfo': timezone.get_default_timezone()}) if self.is_published else None
