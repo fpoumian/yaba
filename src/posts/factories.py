@@ -18,6 +18,13 @@ class ExtendedLoremProvider(LoremProvider):
     def split_paragraphs(cls, nb=3):
         return '\n\n'.join(cls.paragraphs(nb))
 
+    @classmethod
+    def markdown(cls):
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                               'mocks', 'markdown_post.md'), 'r') as f:
+            file_content = f.read()
+        return file_content
+
 
 factory.Faker.add_provider(ExtendedLoremProvider)
 
@@ -31,7 +38,8 @@ class PostFactory(factory.django.DjangoModelFactory):
     slug = factory.LazyAttribute(lambda p: slugify(p.title[:49]))
     featured_image = os.path.join('posts/uploads', 'placeholder.jpg')
     excerpt = factory.Faker('sentence', nb_words=20)
-    body = factory.Faker('split_paragraphs', nb=6)
+    # body = factory.Faker('split_paragraphs', nb=6)
+    body = factory.Faker('markdown')
 
     @factory.lazy_attribute
     def published_at(self):
