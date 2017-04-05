@@ -10351,6 +10351,7 @@ var LastFmScrobbledTrack =
 function LastFmScrobbledTrack(rawTrackData) {
   _classCallCheck(this, LastFmScrobbledTrack);
 
+  console.log(rawTrackData);
   this._name = rawTrackData.name;
   this._artist = rawTrackData.artist['#text'];
   this._album = rawTrackData.album['#text'];

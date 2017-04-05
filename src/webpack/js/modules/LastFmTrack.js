@@ -8,6 +8,7 @@ export default class LastFmScrobbledTrack {
    * @param {object} rawTrackData - The raw track data of a Last.FM API response object.
    */
   constructor(rawTrackData) {
+    console.log(rawTrackData);
     this._name = rawTrackData.name;
     this._artist = rawTrackData.artist['#text'];
     this._album = rawTrackData.album['#text'];
