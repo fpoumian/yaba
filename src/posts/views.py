@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .utils import get_posts_from_page, render_post_list
+from tagging.views import TaggedObjectList
 
 from .models import Post
 
@@ -36,11 +37,16 @@ def detail(request, slug):
     except Post.DoesNotExist:
         next = None
 
-    print(request.get_raw_uri())
-
     return render(request, 'posts/detail.html', {
         'post': post,
         'previous': previous,
         'next': next
     })
 
+
+class TaggedPostsList(TaggedObjectList):
+    model = Post
+    paginate_by = 5
+    allow_empty = True
+    template_name = 'posts/list.html'
+    context_object_name = 'posts'
