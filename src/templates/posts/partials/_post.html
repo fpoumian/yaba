@@ -32,7 +32,7 @@
                 <a class="post__read-more-link" href="{{ post.get_absolute_url }}">[read more]</a></p>
         </div>
     {% else %}
-        <div class="post__content post_conntent--full">
+        <div class="post__content post_content--full">
         <p>{{ post.body|markdown|safe }}</p>
     {% endif %}
 </article>
