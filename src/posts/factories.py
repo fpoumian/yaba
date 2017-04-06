@@ -1,6 +1,7 @@
 import os
 import factory
 import factory.django
+from random import sample
 from django.utils.timezone import now
 from faker.providers.lorem.la import Provider as LoremProvider
 from faker.providers.date_time import Provider as DateTimeProvider
@@ -23,9 +24,17 @@ class ExtendedLoremProvider(LoremProvider):
     @staticmethod
     def markdown():
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                               'mocks', 'markdown_post.md'), 'r') as f:
+                               'fakes', 'markdown_post.md'), 'r') as f:
             file_content = f.read()
         return file_content
+
+    @staticmethod
+    def tags():
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                               'fakes', 'tags.txt'), 'r') as f:
+            tag_list = [tag.strip() for tag in sample(f.readlines(), 3)]
+            tags = ', '.join(tag_list)
+        return tags
 
 
 factory.Faker.add_provider(ExtendedLoremProvider)
@@ -41,8 +50,8 @@ class PostFactory(factory.django.DjangoModelFactory):
     slug = factory.LazyAttribute(lambda p: slugify(p.title[:49]))
     featured_image = os.path.join('posts/uploads', 'placeholder.jpg')
     excerpt = factory.Faker('sentence', nb_words=20)
-    # body = factory.Faker('split_paragraphs', nb=6)
     body = factory.Faker('markdown')
+    tags = factory.Faker('tags')
 
     @factory.lazy_attribute
     def published_at(self):
