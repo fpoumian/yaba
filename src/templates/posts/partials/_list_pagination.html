@@ -1,11 +1,11 @@
 <nav aria-label="...">
     <ul class="posts__pager">
-        {% if posts.has_previous %}
+        {% if page_obj.has_previous %}
             <li class="posts__pager--previous">
-                {% if posts.previous_page_number == 1 %}
+                {% if page_obj.previous_page_number == 1 %}
                     <a href="{% url 'posts:index' %}" class="button button--round button--round-extended">
                 {% else %}
-                    <a href="{% url 'posts:list' %}?page={{ posts.previous_page_number }}"
+                    <a href="{% url 'posts:list' %}?page={{ page_obj.previous_page_number }}"
                        class="button button--round button--round-extended">
                 {% endif %}
                 <span class="fa fa-angle-double-left button__icon" aria-hidden="true"></span>
@@ -13,9 +13,9 @@
                 </a>
             </li>
         {% endif %}
-        {% if posts.has_next %}
+        {% if page_obj.has_next %}
             <li class="posts__pager--next">
-                <a href="{% url 'posts:list' %}?page={{ posts.next_page_number }}" class="button button--round button--round-extended">
+                <a href="{% url 'posts:list' %}?page={{ page_obj.next_page_number }}" class="button button--round button--round-extended">
                     <span class="button__inner-text">Next</span>
                     <span class="fa fa-angle-double-right button__icon" aria-hidden="true"></span>
                 </a>

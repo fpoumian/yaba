@@ -7,7 +7,8 @@
         {% empty %}
             <p>No posts.</p>
         {% endfor %}
-        {% if posts|length > 0 %}
+        {#        {% if posts|length > 0 %}#}
+        {% if is_paginated %}
             {% include "posts/partials/_list_pagination.html" with posts=posts %}
         {% endif %}
     </section>
