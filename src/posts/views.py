@@ -43,3 +43,4 @@ def detail(request, slug):
         'previous': previous,
         'next': next
     })
+
