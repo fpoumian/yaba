@@ -11,19 +11,33 @@
             accusantium.
         </p>
     </div>
-    <div class="sidebar__social-icons">
+    {#    <div class="sidebar__social-icons">#}
+    {#        {% if GITHUB_USERNAME %}#}
+    {#            <a href="https://github.com/{{ GITHUB_USERNAME }}" target="_blank" class="button button--round">#}
+    {#                <span class="fa fa-github-alt button__icon" aria-hidden="true"></span>#}
+    {#            </a>#}
+    {#        {% endif %}#}
+    {#        {% if TWITTER_USERNAME %}#}
+    {#            <a href="https://twitter.com/{{ TWITTER_USERNAME }}" target="_blank" class="button button--round">#}
+    {#                <span class="fa fa-twitter button__icon" aria-hidden="true"></span>#}
+    {#            </a>#}
+    {#        {% endif %}#}
+    {#    </div>#}
+    <div class="sidebar__extended-buttons">
         {% if GITHUB_USERNAME %}
-            <a href="https://github.com/{{ GITHUB_USERNAME }}" target="_blank" class="button button--round">
-                <span class="fa fa-github-alt button__icon" aria-hidden="true"></span>
+            <a href="https://github.com/{{ GITHUB_USERNAME }}" target="_blank"
+               class="button button--round button--round-extended">
+                <span class="fa fa-github button__icon" aria-hidden="true"></span>
+                <span class="button__inner-text">My Code</span>
             </a>
         {% endif %}
         {% if TWITTER_USERNAME %}
-            <a href="https://twitter.com/{{ TWITTER_USERNAME }}" target="_blank" class="button button--round">
+            <a href="https://twitter.com/{{ TWITTER_USERNAME }}" target="_blank"
+               class="button button--round button--round-extended">
                 <span class="fa fa-twitter button__icon" aria-hidden="true"></span>
+                <span class="button__inner-text">My Tweets</span>
             </a>
         {% endif %}
-    </div>
-    <div class="sidebar__extended-buttons">
         {% if LAST_FM_API_KEY and LAST_FM_USERNAME %}
             <button class="button button--round button--round-extended js-my-scrobbles-toggle js-modal"
                     data-modal-content="scrobbles">
