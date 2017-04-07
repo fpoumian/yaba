@@ -2,5 +2,5 @@
 
 {% block pagination %}
     {% url 'posts:tag' tag=tag as view_url %}
-    {% include "posts/partials/_base_pagination.html" with posts=posts %}
+        {% include "posts/partials/_list_pagination.html" with posts=posts view_url=view_url %}
 {% endblock %}
