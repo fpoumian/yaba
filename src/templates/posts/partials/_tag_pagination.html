@@ -1,0 +1,4 @@
+{% extends 'posts/partials/_base_pagination.html' %}
+{% block view_url %}
+    {% url 'posts:tag' tag=tag as view_url %}
+{% endblock %}

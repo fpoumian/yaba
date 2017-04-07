@@ -7,8 +7,9 @@
         {% empty %}
             <p>No posts.</p>
         {% endfor %}
-        {% if is_paginated %}
-            {% include "posts/partials/_list_pagination.html" with posts=posts %}
-        {% endif %}
+        {% block pagination %}
+            {% url 'posts:list' as view_url %}
+            {% include "posts/partials/_base_pagination.html" with posts=posts%}
+        {% endblock %}
     </section>
 {% endblock %}

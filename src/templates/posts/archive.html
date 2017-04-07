@@ -1,0 +1,7 @@
+{% extends 'posts/list.html' %}
+
+{% block pagination %}
+    {% if is_paginated %}
+        {% include "posts/partials/_list_pagination.html" with posts=posts %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'posts/list.html' %}
+
+{% block pagination %}
+    {% url 'posts:tag' tag=tag as view_url %}
+    {% include "posts/partials/_base_pagination.html" with posts=posts %}
+{% endblock %}

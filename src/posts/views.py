@@ -54,10 +54,9 @@ class PostDetailView(BasePostsMixin, DetailView):
         except Post.DoesNotExist:
             context['next'] = None
 
-        print(context)
-
         return context
 
 
 class TaggedPostsList(BasePostsMixin, BasePostsListMixin, TaggedObjectList):
     allow_empty = True
+    template_name = 'posts/tag.html'
