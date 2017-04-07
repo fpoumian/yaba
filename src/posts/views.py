@@ -54,12 +54,12 @@ class PostDetailView(BasePostsMixin, DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
 
         try:
-            context['previous'] = post.get_previous_by_created_at()
+            context['previous'] = post.get_previous_published()
         except Post.DoesNotExist:
             context['previous'] = None
 
         try:
-            context['next'] = post.get_next_by_created_at()
+            context['next'] = post.get_next_published()
         except Post.DoesNotExist:
             context['next'] = None
 

@@ -41,6 +41,23 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('posts:detail', kwargs={'slug': self.slug})
 
+    def get_others(self):
+        return Post.published_objects.exclude(pk=self.pk)
+
+    def get_next_published(self):
+        try:
+            published_gte = self.get_others().filter(published_at__gte=self.published_at)
+            return published_gte.order_by('published_at')[0]
+        except IndexError:
+            raise Post.DoesNotExist
+
+    def get_previous_published(self):
+        try:
+            published_lte = self.get_others().filter(published_at__lte=self.published_at)
+            return published_lte.order_by('-published_at')[0]
+        except IndexError:
+            raise Post.DoesNotExist
+
     def __str__(self):
         return self.title
 
