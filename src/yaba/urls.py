@@ -17,9 +17,18 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 
 from . import views
+from .sitemaps import PostsSitemap, StaticViewSitemap, IndexViewSitemap
+
+# Sitemaps
+sitemaps = {
+    'index': IndexViewSitemap,
+    'posts': PostsSitemap,
+    'static': StaticViewSitemap
+}
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
@@ -28,6 +37,8 @@ urlpatterns = [
                   url(r'^markdownx/', include('markdownx.urls')),
                   url(r'^404/$', TemplateView.as_view(template_name='yaba/404.html')),
                   url(r'^500/$', TemplateView.as_view(template_name='yaba/500.html')),
+                  url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+                      name='django.contrib.sitemaps.views.sitemap'),
                   url(r'^', include('posts.urls'))
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
