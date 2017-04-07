@@ -18,20 +18,29 @@ class BasePostsListMixin():
     paginate_by = 5
 
 
-class PostsList(BasePostsMixin, BasePostsListMixin, ListView):
+class PostsListView(BasePostsMixin, BasePostsListMixin, ListView):
     def get(self, request, *args, **kwargs):
         page = request.GET.get('page')
 
         # If a page parameter is not present in url
         # let the index view handle the request
         # so that "/posts/" route redirects to  "/"
-        if not page:
+        if not page or int(page) == 1:
             return redirect('posts:index', permanent=True)
         return super(ListView, self).get(self, request, *args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['page'] = self.request.GET.get('page')
+        return context
 
-class IndexView(PostsList):
+
+class IndexView(PostsListView):
     def get(self, request, *args, **kwargs):
+        page = request.GET.get('page')
+
+        if page:
+            return redirect('posts:list', permanent=True)
         # return the get() method from grandparent class (ListView)
         # to avoid infinite redirects
         return ListView.get(self, request, *args, **kwargs)

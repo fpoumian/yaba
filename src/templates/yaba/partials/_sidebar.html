@@ -3,12 +3,10 @@
         <a href="{% url 'posts:index' %}"><img src="http://lorempixel.com/100/100/"></a>
     </div>
     <div class="sidebar__blog-title">
-        <h3><a href="{% url 'posts:index' %}">Fernando Poumian</a></h3>
+        <h3><a href="{% url 'posts:index' %}">{{ SITE_NAME }}</a></h3>
     </div>
     <div class="sidebar__blog-description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quisquam non voluptatum iste
-            necessitatibus magni
-            accusantium.
+        <p>{{ SITE_DESCRIPTION }}
         </p>
     </div>
     {#    <div class="sidebar__social-icons">#}

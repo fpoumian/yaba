@@ -187,3 +187,7 @@ LAST_FM_SCROBBLES_LIMIT = 10
 
 # Disqus
 DISQUS_WEBSITE_SHORTNAME = 'fernando-codes'
+
+# Site Info
+SITE_NAME = 'Fernando Poumián'
+SITE_DESCRIPTION = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quisquam non voluptatum iste necessitatibus magni accusantium'

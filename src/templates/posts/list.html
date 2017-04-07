@@ -1,5 +1,12 @@
 {% extends "yaba/layouts/base.html" %}
 
+{% block title %}
+    {% if page_obj.has_previous %} Posts | Page {{ page }} | {{ block.super }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
 {% block main_content %}
     <section class="posts">
         {% for post in posts %}

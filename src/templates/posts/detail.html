@@ -1,6 +1,6 @@
 {% extends "yaba/layouts/base.html" %}
 
-{% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
+{% block title %}{{ post.title }} | {{ block.super }}{% endblock %}
 
 {% block main_content %}
         {% include "posts/partials/_post.html" with post_context="detail" %}
