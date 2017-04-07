@@ -7,19 +7,18 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 
 
-def index(request):
-    page = request.GET.get('page')
-
-    return render_post_list(request, get_posts_from_page(page))
-
-
-class PostsList(ListView):
-    template_name = 'posts/list.html'
-    context_object_name = 'posts'
-    paginate_by = 5
+class BasePostsMixin():
     model = Post
     queryset = Post.published_objects.all()
 
+
+class BasePostsListMixin():
+    template_name = 'posts/list.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+
+
+class PostsList(BasePostsMixin, BasePostsListMixin, ListView):
     def get(self, request, *args, **kwargs):
         page = request.GET.get('page')
 
@@ -38,9 +37,7 @@ class IndexView(PostsList):
         return ListView.get(self, request, *args, **kwargs)
 
 
-class PostDetailView(DetailView):
-    queryset = Post.published_objects.all()
-    model = Post
+class PostDetailView(BasePostsMixin, DetailView):
     template_name = 'posts/detail.html'
 
     def get_context_data(self, **kwargs):
@@ -62,41 +59,5 @@ class PostDetailView(DetailView):
         return context
 
 
-def list(request):
-    page = request.GET.get('page')
-
-    # If a page parameter is not present in url
-    # let the index view handle the request
-    # so that "/posts/" route redirects to  "/"
-    if not page:
-        return redirect('posts:index', permanent=True)
-
-    return render_post_list(request, get_posts_from_page(page))
-
-
-def detail(request, slug):
-    post = get_object_or_404(Post.published_objects, slug=slug)
-
-    try:
-        previous = post.get_previous_by_created_at()
-    except Post.DoesNotExist:
-        previous = None
-
-    try:
-        next = post.get_next_by_created_at()
-    except Post.DoesNotExist:
-        next = None
-
-    return render(request, 'posts/detail.html', {
-        'post': post,
-        'previous': previous,
-        'next': next
-    })
-
-
-class TaggedPostsList(TaggedObjectList):
-    model = Post
-    paginate_by = 5
+class TaggedPostsList(BasePostsMixin, BasePostsListMixin, TaggedObjectList):
     allow_empty = True
-    template_name = 'posts/list.html'
-    context_object_name = 'posts'
