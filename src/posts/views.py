@@ -27,7 +27,7 @@ class PostsList(BasePostsMixin, BasePostsListMixin, ListView):
         # so that "/posts/" route redirects to  "/"
         if not page:
             return redirect('posts:index', permanent=True)
-        return super().get(self, request, *args, **kwargs)
+        return super(ListView, self).get(self, request, *args, **kwargs)
 
 
 class IndexView(PostsList):
