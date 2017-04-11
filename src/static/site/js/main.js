@@ -10355,6 +10355,7 @@ function LastFmScrobbledTrack(rawTrackData) {
   this._name = rawTrackData.name;
   this._artist = rawTrackData.artist['#text'];
   this._album = rawTrackData.album['#text'];
+  // If track data is missing date property, that means the track is being scrobbled right now
   this._date = rawTrackData.date ? rawTrackData.date['#text'] : 'Now playing...';
 };
 
