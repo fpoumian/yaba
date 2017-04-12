@@ -2,6 +2,7 @@ import os
 
 from .base import *
 
+# Production Database (Amazon RDS)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -12,3 +13,17 @@ DATABASES = {
         'PORT': os.environ['RDS_PORT'],
     }
 }
+
+# AWS
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+
+
+# S3 File Storage
+INSTALLED_APPS += ('storages',)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = 'poumian-yaba'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+
