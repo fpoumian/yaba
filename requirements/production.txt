@@ -1,1 +1,4 @@
 -r base.txt
+boto
+django-storages
+psycopg2
