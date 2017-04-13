@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const DIST_PATH = path.resolve(__dirname, 'src', 'yaba_core', 'static', 'site');
 const SRC_PATH = path.resolve(__dirname, 'src', 'webpack');
-const FONT_LOADERS_CONFIG = 'outputPath=./fonts/&publicPath=/site/fonts/';
+const FONT_LOADERS_CONFIG = 'outputPath=./fonts/&publicPath=/static/site/fonts/';
 
 const extractLess = new ExtractTextPlugin({
   filename: "./css/[name].css"
