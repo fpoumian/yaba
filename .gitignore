@@ -4,3 +4,4 @@ venv/
 .idea
 /node_modules/
 /src/yaba/settings/secrets.json
+*.pyc
