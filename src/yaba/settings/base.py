@@ -186,3 +186,4 @@ SITE_DESCRIPTION = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Al
 
 # S3 Static File Storage Location (should be overridden in other settings modules)
 STATICFILES_LOCATION = ''
+MEDIAFILES_LOCATION = ''

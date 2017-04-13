@@ -25,12 +25,17 @@ DATABASES = {
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
+# S3 Storage
 INSTALLED_APPS += ('storages',)
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = 'fernandocodes'
+AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 
 # S3 Static File Storage
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'yaba.storages.static_storage.StaticStorage'
-AWS_STORAGE_BUCKET_NAME = 'fernandocodes'
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 STATIC_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+# S3 Media Files Storage
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'yaba.storages.media_storage.MediaStorage'
+MEDIA_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
