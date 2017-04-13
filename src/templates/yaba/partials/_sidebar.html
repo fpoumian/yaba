@@ -1,6 +1,8 @@
+{% load static from staticfiles %}
+
 <aside class="sidebar">
     <div class="sidebar__avatar">
-        <a href="{% url 'posts:index' %}"><img src="http://lorempixel.com/100/100/"></a>
+        <a href="{% url 'posts:index' %}"><img src="{% static 'site/img/avatar.png' %}"></a>
     </div>
     <div class="sidebar__blog-title">
         <h3><a href="{% url 'posts:index' %}">{{ SITE_NAME }}</a></h3>
