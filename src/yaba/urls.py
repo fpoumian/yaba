@@ -35,8 +35,6 @@ urlpatterns = [
                   url(r'^about/', views.about, name='about'),
                   url(r'^contact/', views.contact, name='contact'),
                   url(r'^markdownx/', include('markdownx.urls')),
-                  url(r'^404/$', TemplateView.as_view(template_name='yaba/../templates/404.html')),
-                  url(r'^500/$', TemplateView.as_view(template_name='yaba/../templates/500.html')),
                   url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
                       name='django.contrib.sitemaps.views.sitemap'),
                   url(r'^', include('posts.urls'))
