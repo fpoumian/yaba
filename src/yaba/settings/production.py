@@ -16,7 +16,7 @@ DATABASES = {
 
 # AWS
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['guv9wcu5gFUV6b0SUnbO9wvfp7vXbpYhM0Y10MlB']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 # S3 File Storage
 INSTALLED_APPS += ('storages',)
