@@ -2,6 +2,8 @@ import os
 
 from .base import *
 
+DEBUG = True
+
 # Production Database (Amazon RDS)
 DATABASES = {
     'default': {
