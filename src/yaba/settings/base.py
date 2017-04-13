@@ -141,7 +141,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -184,3 +183,6 @@ DISQUS_WEBSITE_SHORTNAME = 'fernando-codes'
 # Site Info
 SITE_NAME = 'Fernando Poumian'
 SITE_DESCRIPTION = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quisquam non voluptatum iste necessitatibus magni accusantium'
+
+# S3 Static File Storage Location (should be overridden in other settings modules)
+STATICFILES_LOCATION = ''
