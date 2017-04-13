@@ -6,7 +6,7 @@ DEBUG = True
 
 # Allowed Hosts
 ALLOWED_HOSTS = [
-    '*.c2-54-175-168-118.compute-1.amazonaws.com'
+    'ec2-54-175-168-118.compute-1.amazonaws.com'
 ]
 
 # Production Database (Amazon RDS)
