@@ -4,6 +4,9 @@ from .base import *
 
 DEBUG = False
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = get_env_variable("SECRET_KEY")
+
 # Email SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -47,3 +50,7 @@ STATIC_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'yaba.storages.media_storage.MediaStorage'
 MEDIA_URL = "https://{}/{}/".format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+# Recaptcha Settings
+RECAPTCHA_PUBLIC_KEY = get_env_variable('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = get_env_variable('RECAPTCHA_PRIVATE_KEY')

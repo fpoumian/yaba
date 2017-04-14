@@ -17,20 +17,6 @@ import json
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
-# JSON-based secrets module
-secrets_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "secrets.json")
-with open(secrets_path) as f:
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting, secrets=secrets):
-    """Get the secret variable or return explicit exception."""
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {0} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
 
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
@@ -46,9 +32,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -71,7 +54,8 @@ INSTALLED_APPS = [
     'markdownx',
     'webpack_loader',
     'mistune',
-    'tagging'
+    'tagging',
+    'captcha'
 ]
 
 SITE_ID = 1
@@ -196,3 +180,6 @@ SITE_DESCRIPTION = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Al
 # S3 Static File Storage Location (should be overridden in other settings modules)
 STATICFILES_LOCATION = ''
 MEDIAFILES_LOCATION = ''
+
+#ReCaptcha
+NOCAPTCHA = True
