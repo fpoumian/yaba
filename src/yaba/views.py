@@ -8,10 +8,6 @@ from django.conf import settings
 from django.contrib import messages
 
 
-def index(request):
-    return render(request, 'yaba/index.html')
-
-
 def about(request):
     return render(request, 'yaba/about.html')
 
