@@ -4,8 +4,13 @@ from .base import *
 
 DEBUG = False
 
-# Email
+# Email SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('GMAIL_SMTP_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('GMAIL_SMTP_HOST_PASSWORD')
+EMAIL_PORT = 587
+
 
 # Allowed Hosts
 ALLOWED_HOSTS = [
@@ -25,8 +30,8 @@ DATABASES = {
 }
 
 # AWS
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 # S3 Storage
 INSTALLED_APPS += ('storages',)
