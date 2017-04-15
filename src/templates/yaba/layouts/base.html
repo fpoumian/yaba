@@ -6,6 +6,7 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,700|Lora:700" rel="stylesheet">
@@ -15,7 +16,7 @@
     {% render_bundle 'main' 'css' 'DEFAULT' %}
 </head>
 <body>
-<div class="container" id="panel">
+<div class="container">
     <!-- desktop nav -->
     <div class="wrapper navbar-wrapper">
         {% include 'yaba/partials/_header-nav.html' %}

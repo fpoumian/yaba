@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack-server": "webpack --watch",
-    "django-server": "python ./src/manage.py runserver",
+    "django-server": "python ./src/manage.py runserver --settings=yaba.settings.local",
     "start": "concurrently --kill-others \"npm run django-server\" \"npm run webpack-server\""
   },
   "author": "",

@@ -9211,6 +9211,7 @@ body {
 @media (min-width: 992px) {
   .main-wrapper {
     margin-top: 9rem;
+    min-height: 685px;
   }
 }
 .sidebar {
