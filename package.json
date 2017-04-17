@@ -6,7 +6,8 @@
   "scripts": {
     "webpack-server": "webpack --watch",
     "django-server": "python ./src/manage.py runserver --settings=yaba.settings.local",
-    "start": "concurrently --kill-others \"npm run django-server\" \"npm run webpack-server\""
+    "start": "concurrently --kill-others \"npm run django-server\" \"npm run webpack-server\"",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.2",
     "node-libs-browser": "^2.0.0",
+    "optimize-css-assets-webpack-plugin": "^1.3.1",
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.2",

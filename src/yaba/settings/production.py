@@ -32,6 +32,14 @@ DATABASES = {
     }
 }
 
+# Webpack Loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': './site/',
+        'STATS_FILE': os.path.join(BASE_DIR, '..', 'webpack-stats.prod.json'),
+    }
+}
+
 # AWS
 AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')

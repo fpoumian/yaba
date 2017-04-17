@@ -138,14 +138,6 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Webpack Loader
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': './site/',
-        'STATS_FILE': os.path.join(BASE_DIR, '..', 'webpack-stats.json'),
-    }
-}
-
 # Markdownify
 MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'
 
