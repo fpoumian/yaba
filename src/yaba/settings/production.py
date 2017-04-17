@@ -48,6 +48,9 @@ AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 INSTALLED_APPS += ('storages',)
 AWS_STORAGE_BUCKET_NAME = 'fernandocodes'
 AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'public, max-age=86400',
+}
 
 # S3 Static File Storage
 STATICFILES_LOCATION = 'static'
