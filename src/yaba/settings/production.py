@@ -47,10 +47,11 @@ AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 # S3 Storage
 INSTALLED_APPS += ('storages',)
 AWS_STORAGE_BUCKET_NAME = 'fernandocodes'
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+# AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'public, max-age=86400',
 }
+AWS_S3_CUSTOM_DOMAIN = 'd17rjiyh2ombyp.cloudfront.net'
 
 # S3 Static File Storage
 STATICFILES_LOCATION = 'static'
